@@ -6,6 +6,9 @@ bin-int/
 # HGenX files
 *.log
 
+#Temporary Imgui Lua file for further use; Delete this when it is setup properly
+imguiLua/
+
 # Visual Studio files and folder
 .vs/
 **.sln
