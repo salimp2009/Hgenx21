@@ -2,6 +2,7 @@
 
 
 
+
 class Sandbox : public Hgenx::Application
 {
 public:
@@ -10,7 +11,7 @@ public:
 
 	}
 
-	~ Sandbox()
+	virtual ~ Sandbox()
 	{
 
 	}
