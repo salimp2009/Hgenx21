@@ -26,9 +26,6 @@ namespace Hgenx
 		s_ClientLogger = std::move(spdlog::stdout_color_mt("APP"));
 		s_ClientLogger->set_level(spdlog::level::trace);
 
-		
-		
-
 	}
 
 }

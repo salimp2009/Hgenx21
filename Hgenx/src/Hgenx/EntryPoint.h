@@ -6,8 +6,11 @@ extern Hgenx::Application* Hgenx::CreateApplication();
 int main(int argc, char** argv)
 {
 	Hgenx::Log::Init();
-	Hgenx::Log::GetCoreLogger()->warn("Initialize Log");
-	Hgenx::Log::GetClientLogger()->info("Initialize Log");
+	HG_CORE_WARN("Initialize Log");
+	int a = 10;
+	HG_INFO("Hello!!! Variable={0}", a);
+	HG_CORE_FATAL("Fatal");
+
 	auto app = Hgenx::CreateApplication();
 	app->Run();
 	delete app;
