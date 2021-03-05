@@ -24,6 +24,9 @@ namespace Hgenx
 	};
 
 } 
+// Lambda version; Test; this works; try to do eliminate __VA_ARGS__
+#define HG_CORE_TRACE_LAMBDA(...) []()->decltype(auto){::Hgenx::Log::GetCoreLogger()->trace(__VA_ARGS__);}()
+
 
 // Core log macros
 #define HG_CORE_TRACE(...)    ::Hgenx::Log::GetCoreLogger()->trace(__VA_ARGS__)
