@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Hgenx
 {
 	class HGENX_API WindowResizeEvent :public Event

@@ -1,3 +1,5 @@
+
+#include "hgpch.h"
 #include "Hgenx/Application.h"
 
 #include "Hgenx/Events/ApplicationEvent.h"
@@ -33,7 +35,6 @@ namespace Hgenx
 		
 		KeyPressedEvent e2(32, 20);
 		MouseMovedEvent e3(20.45f, 30.256f);
-									
 		
 		//HG_INFO(e2);
 		//HG_INFO(e3);

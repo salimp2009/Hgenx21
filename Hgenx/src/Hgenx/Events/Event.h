@@ -1,9 +1,10 @@
 #pragma once
+#include "hgpch.h"
 
 #include "Hgenx/Core.h"
 
-#include <string>
-#include <functional>
+//#include <string>
+//#include <functional>
 
 namespace Hgenx
 {
@@ -76,7 +77,7 @@ namespace Hgenx
 				m_Event.Handled |= func(static_cast<T&>(m_Event));  // changed from "m_Event.Handled =" to "m_Event.Handled |="
 				return true;
 			}
-			return false;
+			return false; 
 		}
 
 	private:

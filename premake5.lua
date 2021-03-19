@@ -11,6 +11,12 @@ workspace "Hgenx"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hgenx/vendor/GLFW/include"
+
+include "Hgenx/vendor/GLFW"
+
 project "Hgenx"
 	location "HGenx"
 	kind "SharedLib"
@@ -21,6 +27,9 @@ project "Hgenx"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hgpch.h"
+	pchsource "Hgenx/src/hgpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -30,7 +39,14 @@ project "Hgenx"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

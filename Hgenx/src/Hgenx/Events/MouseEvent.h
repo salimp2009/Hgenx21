@@ -2,9 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-#include <charconv>
-
 namespace Hgenx
 {
 	class HGENX_API MouseMovedEvent : public Event

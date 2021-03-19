@@ -1,3 +1,6 @@
 [submodule "Hgenx/vendor/spdlog"]
 	path = Hgenx/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Hgenx/vendor/GLFW"]
+	path = Hgenx/vendor/GLFW
+	url = https://github.com/salimp2009/glfw
