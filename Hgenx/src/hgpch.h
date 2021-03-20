@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Hgenx/Log.h"
+
 
 #ifdef HG_PLATFORM_WINDOWS
 	#include <Windows.h>

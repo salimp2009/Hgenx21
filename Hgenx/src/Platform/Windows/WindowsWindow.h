@@ -7,7 +7,7 @@
 
 namespace Hgenx
 {
-
+	
 	class WindowsWindow: public Window
 	{
 	public:
@@ -25,14 +25,14 @@ namespace Hgenx
 		virtual bool IsVSync() const override;
 		
 		// Will be implemented in later videos
-		virtual void* GetActiveWindow() const override { return m_Window; }
+		virtual void* GetNativeWindow() const override { return m_Window; }
 
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 
 	private:
-		// Refactor to unique_ptr or shared_ptr
+		// Refactor to unique_ptr or shared_ptr; maynot be needed since Application.h wraps w/ unique_ptr
 		GLFWwindow* m_Window;
 
 		struct WindowData

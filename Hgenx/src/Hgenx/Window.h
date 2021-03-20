@@ -14,7 +14,7 @@ namespace Hgenx
 		unsigned int Height;
 
 		WindowProps(std::string title="Hgenx Engine", 
-			unsigned int width=1280, unsigned int height=1080): 
+			unsigned int width=1280, unsigned int height=720): 
 			Title{std::move(title)}, Width{width}, Height{height} { }
 	};
 
@@ -36,7 +36,8 @@ namespace Hgenx
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const= 0;
-		virtual void* GetActiveWindow() const = 0; // Will be implemented in later videos
+
+		virtual void* GetNativeWindow() const = 0; // Will be implemented in later videos
 
 		static Window* Create(const WindowProps& props = WindowProps());
 		
