@@ -37,5 +37,8 @@
 	#define HG_CORE_ASSERT(x, ...)
 #endif
 
+
+#define HG_BIND_EVENT_FN(fn) [this](auto&&... x)->decltype(auto) {return fn(std::forward<decltype(x)>(x)...); }
+
 #define BIT(x) (1 << x)
 
