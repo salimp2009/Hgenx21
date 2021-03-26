@@ -2,16 +2,11 @@
 #include "hgpch.h"
 #include "Hgenx/Application.h"
 
-#include "Hgenx/Events/ApplicationEvent.h"
 #include "Hgenx/Log.h"
 #include "Hgenx/Events/KeyEvent.h"
 #include "Hgenx/Events/MouseEvent.h"
 
 #include <GLFW/glfw3.h>
-
-/*TODO ; Delete these if lambda works*/
-//m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
-//m_Window->SetEventCallback([this](auto&&... x)->decltype(auto) {return Application::OnEvent(std::forward<decltype(x)>(x)...); });
 
 
 namespace Hgenx 
@@ -30,8 +25,13 @@ namespace Hgenx
 
 	void Application::OnEvent(Event& e)
 	{
-		HG_CORE_INFO("{0}",e);
+		/* Original WindowClose event call*/
+		EventDispatcher dispatch(e);
+		dispatch.Dispatch<WindowCloseEvent>(HG_BIND_EVENT_FN(Application::OnWindowClose));
+		
+		HG_CORE_TRACE("{0}",e);
 	}
+
 
 	void Application::Run()
 	{
@@ -45,7 +45,11 @@ namespace Hgenx
 		}
 	}
 
-	
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
 
 }
 
