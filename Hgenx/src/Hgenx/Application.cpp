@@ -25,7 +25,6 @@ namespace Hgenx
 
 	void Application::OnEvent(Event& e)
 	{
-		/* Original WindowClose event call*/
 		EventDispatcher dispatch(e);
 		dispatch.Dispatch<WindowCloseEvent>(HG_BIND_EVENT_FN(Application::OnWindowClose));
 		
