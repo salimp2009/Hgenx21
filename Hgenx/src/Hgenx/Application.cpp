@@ -23,26 +23,54 @@ namespace Hgenx
 
 	}
 
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatch(e);
 		dispatch.Dispatch<WindowCloseEvent>(HG_BIND_EVENT_FN(Application::OnWindowClose));
 		
-		HG_CORE_TRACE("{0}",e);
-	}
+		/*TODO: DELETE this after testing example layer in Sandbox*/
+		//HG_CORE_TRACE("{0}",e);
 
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
+		{
+			if (e.Handled)
+			{
+				break;
+			}
+			(*it)->OnEvent(e);
+		}
+
+	}
 
 	void Application::Run()
 	{
 		
-	
 		while (m_Running)
 		{
 			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
+			for (Layer* layer : m_LayerStack)
+			{
+				layer->OnUpdate();
+			}
 		}
 	}
+
+		
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{

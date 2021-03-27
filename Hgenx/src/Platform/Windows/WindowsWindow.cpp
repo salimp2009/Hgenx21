@@ -52,7 +52,7 @@ namespace Hgenx
 			s_GLFWIinitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
+		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data); // m_Data has callbackfunction member which will be used to create callback in GLFW
 		SetVSync(true);
