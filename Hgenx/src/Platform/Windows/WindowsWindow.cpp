@@ -5,8 +5,7 @@
 #include "Hgenx/Events/KeyEvent.h"
 #include "Hgenx/Events/MouseEvent.h"
 
-
-
+#include <glad/glad.h>
 
 
 namespace Hgenx
@@ -54,6 +53,10 @@ namespace Hgenx
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		HG_CORE_ASSERT(status, "Failed to Initialize Glad!");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data); // m_Data has callbackfunction member which will be used to create callback in GLFW
 		SetVSync(true);
 
