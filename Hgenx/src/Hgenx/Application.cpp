@@ -16,7 +16,7 @@ namespace Hgenx
 
 	Application::Application()
 	{
-		HG_ASSERT(!s_Instance, "Application alreay exists!");
+		HG_CORE_ASSERT(!s_Instance, "Application alreay exists!");
 		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(HG_BIND_EVENT_FN(Application::OnEvent));

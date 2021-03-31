@@ -62,7 +62,7 @@ namespace Hgenx
 	{
 		ImGuiIO& io = ImGui::GetIO(); 
 		Application& app = Application::Get();
-		io.DisplaySize=ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize=ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		float time = static_cast<float>(glfwGetTime());
 		io.DeltaTime = m_Time > 0 ? (time - m_Time) : (1.0f / 60.0f);
@@ -86,6 +86,61 @@ namespace Hgenx
 
 	void ImGuiLayer::OnEvent(Event& event)
 	{
+		EventDispatcher dispatcher(event);
+		
+		dispatcher.Dispatch<MouseButtonPressedEvent>(HG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressedEvent));
+		dispatcher.Dispatch<MouseButtonReleasedEvent>(HG_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonReleasedEvent));
+		dispatcher.Dispatch<MouseMovedEvent>(HG_BIND_EVENT_FN(ImGuiLayer::OnMouseMovedEvent));
+		dispatcher.Dispatch<MouseScrolledEvent>(HG_BIND_EVENT_FN(ImGuiLayer::OnMouseScrolledEvent));
+
+		
 	}
+
+	bool ImGuiLayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
+	{
+		return true;
+	}
+
+	bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
+	{
+
+		return true;
+	}
+
+	bool ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent& e)
+	{
+		return true;
+	}
+
+	bool ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent& e)
+	{
+
+		return true;
+	}
+
+	bool ImGuiLayer::OnKeyPressedEvent(KeyPressedEvent& e)
+	{
+		return true;
+	}
+
+	bool ImGuiLayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
+	{
+
+		return true;
+	}
+
+	bool ImGuiLayer::OnKeyTypedEvent(KeyPressedEvent& e)
+	{
+
+		return true;
+	}
+
+	bool ImGuiLayer::OnWindowResizedEvent(WindowResizeEvent& e)
+	{
+
+		return true;
+	}
+
+
 
 } // end of namespace
