@@ -11,9 +11,13 @@
 
 namespace Hgenx 
 {
+	
+	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
+		HG_ASSERT(!s_Instance, "Application alreay exists!");
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(HG_BIND_EVENT_FN(Application::OnEvent));
 
@@ -65,15 +69,16 @@ namespace Hgenx
 		{
 			glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
-			m_Window->OnUpdate();
+			
 			for (Layer* layer : m_LayerStack)
 			{
 				layer->OnUpdate();
 			}
+
+			m_Window->OnUpdate();
 		}
 	}
 
-		
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{

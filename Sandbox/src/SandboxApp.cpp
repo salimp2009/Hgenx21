@@ -27,6 +27,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Hgenx::ImGuiLayer());
 	}
 
 	virtual ~ Sandbox()

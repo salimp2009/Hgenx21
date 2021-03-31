@@ -15,7 +15,7 @@ namespace Hgenx
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}
-		virtual void OnImGuiRender() {/*will be implemented when ImGui is set*/}
+		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
 		const std::string& GetName() const& { return m_DebugName; }

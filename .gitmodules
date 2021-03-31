@@ -4,6 +4,7 @@
 [submodule "Hgenx/vendor/GLFW"]
 	path = Hgenx/vendor/GLFW
 	url = https://github.com/salimp2009/glfw
+
 [submodule "Hgenx/vendor/imgui"]
 	path = Hgenx/vendor/imgui
 	url = https://github.com/salimp2009/imgui

@@ -22,6 +22,8 @@ namespace Hgenx
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
+		static Application& Get() { return *s_Instance; }
+		Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
@@ -29,12 +31,15 @@ namespace Hgenx
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
+	private:
+		static Application* s_Instance;
+
 	};
 
 	// To be defined in CLIENT
 	Application* CreateApplication();
 
 	
-}
+} // end of namespace
 
 
