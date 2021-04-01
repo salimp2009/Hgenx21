@@ -58,7 +58,7 @@ namespace Hgenx
 			return {"KeyReleasedEvent : " + std::to_string(m_KeyCode)};
 		}
 
-		EVENT_CLASS_TYPE(KeyReleased)								// added ENUM_CLASS_TYPE to hint files by mistake; 
+		EVENT_CLASS_TYPE(KeyReleased)								 
 	};
 
 	class HGENX_API KeyTypedEvent : public KeyEvent

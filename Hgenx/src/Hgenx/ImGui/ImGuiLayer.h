@@ -29,7 +29,7 @@ namespace Hgenx
 		
 		bool OnKeyPressedEvent(KeyPressedEvent& e);
 		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
-		bool OnKeyTypedEvent(KeyPressedEvent& e);
+		bool OnKeyTypedEvent(KeyTypedEvent& e);
 		
 		bool OnWindowResizedEvent(WindowResizeEvent& e);
 
