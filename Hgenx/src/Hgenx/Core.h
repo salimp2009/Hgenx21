@@ -16,12 +16,12 @@
 #ifdef HG_DEBUG
 	#if defined(HG_PLATFORM_WINDOWS)
 		#define HG_DEBUGBREAK() __debugbreak()
-#elif defined(HG_PLATFORM_LINUX)
+	#elif defined(HG_PLATFORM_LINUX)
 		#include <signal.h>
 		#define HG_DEBUGBREAK() raise(SIGTRAP)
-#else
-	#error "Platform doesnot support debugbreak yet!"
-#endif
+	#else
+		#error "Platform doesnot support debugbreak yet!"
+	#endif
 	#define HG_ENABLE_ASSERTS
 #else	
 	#define HG_DEBUGBREAK()
