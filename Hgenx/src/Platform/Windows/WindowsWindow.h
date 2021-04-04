@@ -24,7 +24,6 @@ namespace Hgenx
 		virtual void SetVSync(bool enabled) override;
 		virtual bool IsVSync() const override;
 		
-		// Will be implemented in later videos
 		virtual void* GetNativeWindow() const override { return m_Window; }
 
 	private:
