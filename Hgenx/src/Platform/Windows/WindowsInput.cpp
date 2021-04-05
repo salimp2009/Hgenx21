@@ -20,22 +20,30 @@ namespace Hgenx
 
 	bool WindowsInput::IsMouseButtonPressedImpl(int button)
 	{
-		return false;
+		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+		auto state=glfwGetMouseButton(window, button);
+		return state == GLFW_PRESS;
 	}
 
 	std::pair<float, float> WindowsInput::GetMousePositionImpl()
 	{
-		return std::pair<float, float>();
+		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+		double xpos = 0.0; 
+		double ypos = 0.0;
+		glfwGetCursorPos(window, &xpos, &ypos);
+		return { (float)xpos, (float)ypos };
 	}
 
 	float WindowsInput::GetMouseXImpl()
 	{
-		return 0.0f;
+		auto [x, y] = GetMousePositionImpl();
+		return x;
 	}
 
 	float WindowsInput::GetMouseYImpl()
 	{
-		return 0.0f;
+		auto [x, y] = GetMousePositionImpl();
+		return y;
 	}
 
 

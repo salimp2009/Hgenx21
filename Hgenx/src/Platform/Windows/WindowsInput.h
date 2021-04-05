@@ -15,7 +15,6 @@ namespace Hgenx
 		virtual std::pair<float, float> GetMousePositionImpl() override;
 		virtual float GetMouseXImpl() override;
 		virtual float GetMouseYImpl() override;
-
 	};
 
 } // end of namespace
