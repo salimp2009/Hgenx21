@@ -8,6 +8,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 
 namespace Hgenx 
 {
@@ -75,6 +77,9 @@ namespace Hgenx
 				layer->OnUpdate();
 			}
 
+			auto [x, y] = Input::GetMousePosition();
+			HG_CORE_TRACE("Input Polling: {0}, {1}", x, y);
+			
 			m_Window->OnUpdate();
 		}
 	}
