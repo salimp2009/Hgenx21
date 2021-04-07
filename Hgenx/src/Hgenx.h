@@ -7,6 +7,8 @@
 #include "Hgenx/Log.h"
 
 #include "Hgenx/Input.h"
+#include "Hgenx/KeyCodes.h"
+#include "Hgenx/MouseButtonCodes.h"
 
 #include "Hgenx/ImGui/ImGuiLayer.h"
 

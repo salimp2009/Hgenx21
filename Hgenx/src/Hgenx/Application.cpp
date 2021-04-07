@@ -50,9 +50,6 @@ namespace Hgenx
 		EventDispatcher dispatch(e);
 		dispatch.Dispatch<WindowCloseEvent>(HG_BIND_EVENT_FN(Application::OnWindowClose));
 		
-		/*TODO: DELETE this after testing example layer in Sandbox*/
-		//HG_CORE_TRACE("{0}",e);
-
 		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
 			if (e.Handled)
@@ -77,9 +74,6 @@ namespace Hgenx
 				layer->OnUpdate();
 			}
 
-			auto [x, y] = Input::GetMousePosition();
-			HG_CORE_TRACE("Input Polling: {0}, {1}", x, y);
-			
 			m_Window->OnUpdate();
 		}
 	}

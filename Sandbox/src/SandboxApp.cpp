@@ -9,7 +9,12 @@ public:
 
 	virtual void OnUpdate() override
 	{
-		HG_INFO("ExampleLayer::Update");
+		//HG_INFO("ExampleLayer::Update");
+
+		if (Hgenx::Input::IsKeyPressed(HG_KEY_TAB))
+		{
+			HG_INFO("Tab key is pressed! {}", HG_KEY_TAB);
+		}
 	}
 
 	virtual void OnEvent(Hgenx::Event& event) override
