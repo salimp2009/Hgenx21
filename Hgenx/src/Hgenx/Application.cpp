@@ -10,6 +10,8 @@
 
 #include "Input.h"
 
+#include <glm/vec3.hpp>
+
 
 namespace Hgenx 
 {

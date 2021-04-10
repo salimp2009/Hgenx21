@@ -39,6 +39,9 @@
 
 
 #define HG_BIND_EVENT_FN(fn) [this](auto&&... x)->decltype(auto) {return fn(std::forward<decltype(x)>(x)...); }
+/* TODO: Alternative to test with a variadic overloader to replace std::function in Windows.h*/
+#define HG_BIND_EVENT_FN_ALT(fn) [this](auto&&... x)->decltype(auto) { return [](auto&& fn, auto... x)->decltype(auto){fn(std::forward<decltype(x)>(x)...);}; }
+
 
 #define BIT(x) (1 << x)
 

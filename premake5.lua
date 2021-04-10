@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Hgenx/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hgenx/vendor/Glad/include"
 IncludeDir["ImGui"] = "Hgenx/vendor/imgui"
+IncludeDir["glm"] = "Hgenx/vendor/glm"
 
 
 include "Hgenx/vendor/GLFW"
@@ -38,7 +39,9 @@ project "Hgenx"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -47,7 +50,8 @@ project "Hgenx"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -109,7 +113,8 @@ project "Hgenx"
 	{
 		"HGenx/vendor/spdlog/include",
 		"Hgenx/src",
-		"Hgenx/vendor"
+		"Hgenx/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links

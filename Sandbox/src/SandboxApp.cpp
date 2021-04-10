@@ -9,17 +9,25 @@ public:
 
 	virtual void OnUpdate() override
 	{
-		//HG_INFO("ExampleLayer::Update");
-
+		/*TODO: Delete this; used only for test purposes*/
 		if (Hgenx::Input::IsKeyPressed(HG_KEY_TAB))
 		{
-			HG_INFO("Tab key is pressed! {}", HG_KEY_TAB);
+			HG_TRACE("Tab key is pressed!");
 		}
+
 	}
 
 	virtual void OnEvent(Hgenx::Event& event) override
 	{
 		HG_TRACE("{0}", event);
+		
+		/*TODO: Delete this; used only for test purposes*/
+		if (event.GetEventType() == Hgenx::EventType::KeyPressed)
+		{
+			Hgenx::KeyPressedEvent& e = (Hgenx::KeyPressedEvent&)event;
+			
+			HG_TRACE("{0}", static_cast<char>(e.GetKeyCode()));
+		}
 	}
 
 	virtual ~ExampleLayer(){}
