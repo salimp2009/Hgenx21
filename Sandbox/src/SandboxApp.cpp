@@ -1,10 +1,12 @@
 #include <Hgenx.h>
 
+
 class ExampleLayer : public Hgenx::Layer
 {
 public:
 	ExampleLayer():Layer{"Example"}
 	{
+		
 	}
 
 	virtual void OnUpdate() override
