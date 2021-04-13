@@ -29,7 +29,7 @@ namespace Hgenx
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer;
+		ImGuiLayer* m_ImGuiLayer; // TODO; will be implemented later
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
