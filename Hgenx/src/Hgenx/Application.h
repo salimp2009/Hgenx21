@@ -6,6 +6,7 @@
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 #include "Hgenx/LayerStack.h"
+#include "Hgenx/ImGui/ImGuiLayer.h"
 
 namespace Hgenx 
 {
@@ -28,6 +29,7 @@ namespace Hgenx
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

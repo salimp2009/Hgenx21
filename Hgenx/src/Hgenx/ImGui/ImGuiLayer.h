@@ -17,7 +17,7 @@ namespace Hgenx
 	
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
-		virtual void OnImGuiRender() override; /* TODO: will be implemented later*/
+		virtual void OnImGuiRender() override; 
 
 		void Begin();
 		void End();
