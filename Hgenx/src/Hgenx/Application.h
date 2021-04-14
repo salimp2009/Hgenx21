@@ -3,8 +3,8 @@
 #include "Core.h"
 
 #include "Window.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Hgenx/Events/Event.h"
+#include "Hgenx/Events/ApplicationEvent.h"
 #include "Hgenx/LayerStack.h"
 #include "Hgenx/ImGui/ImGuiLayer.h"
 
@@ -29,7 +29,7 @@ namespace Hgenx
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer; // TODO; will be implemented later
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
