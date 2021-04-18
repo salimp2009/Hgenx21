@@ -16,12 +16,12 @@ namespace Hgenx
 
 		virtual std::string ToString() const override
 		{
-			std::stringstream ss;
-			ss << " WindowResizeEvent: " << m_Width << ", " << m_Height;
-			return ss.str();
+			//std::stringstream ss;
+			//ss << " WindowResizeEvent: " << m_Width << ", " << m_Height;
+			//return ss.str();
 
-			// TODO: Refactored ; Works but check performance 
-			//return { ("WindowsResizeEvent: ") + std::to_string(m_Width) + ", " + std::to_string(m_Width) };
+			// TODO: Refactored ; Works but check performance; for floats used fmt::format() in other events 
+			return { ("WindowsResizeEvent: ") + std::to_string(m_Width) + ", " + std::to_string(m_Width) };
 		}
 
 		EVENT_CLASS_TYPE(WindowResize)

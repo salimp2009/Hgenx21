@@ -19,6 +19,7 @@ public:
 
 	}
 
+	
 	virtual void OnEvent(Hgenx::Event& event) override
 	{
 		HG_TRACE("{0}", event);

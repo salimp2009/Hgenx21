@@ -14,12 +14,11 @@ namespace Hgenx
 
 		std::string ToString() const override
 		{
-			std::stringstream ss;
-			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
-			return ss.str();
+			//std::stringstream ss;
+			//ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
+			//return ss.str();
 
-			//to_string from float might not be good for floats
-			//return { "MouseMovedEvent: "  + std::to_string(m_MouseX)+ ", "+ std::to_string(m_MouseY) };
+			return fmt::format("MouseMovedEvent:  {0}, {1}", m_MouseX, m_MouseY);
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
@@ -38,12 +37,12 @@ namespace Hgenx
 
 		std::string ToString() const override
 		{
-			std::stringstream ss;
-			ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
-			return ss.str();
+			//std::stringstream ss;
+			//ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
+			//return ss.str();
 		
-			//to_string from float might not be good for floats
-			//return { "MouseScrolledEvent: " + std::to_string(GetXOffset()) + ", " + std::to_string(GetYOffset()) };
+			return fmt::format("MouseScrolledEvent:  {0}, {1}", GetXOffset(), GetYOffset());
+
 		}
 
 		EVENT_CLASS_TYPE(MouseScrolled)
