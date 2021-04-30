@@ -26,6 +26,5 @@ project "Glad"
 		symbols "on"
 
 	filter "configurations:Release"
-		buildoptions "/MT"
 		runtime "Release"
 		optimize "on"

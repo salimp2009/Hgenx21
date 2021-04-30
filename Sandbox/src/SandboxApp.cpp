@@ -31,9 +31,9 @@ public:
 		/* The linking ERRORs occur because those functions were not used in Hazel and no pointers to functions stored there either use those in Hazel or 
 			or do the above declspec instrinsic to export and import dll function pointer so 
 		*/
-		ImGui::Begin("Sandbox Test");
-		ImGui::Text("Welcome to HGenx 2021!");
-		ImGui::End();
+		//ImGui::Begin("Sandbox Test");
+		//ImGui::Text("Welcome to HGenx 2021!");
+		//ImGui::End();
 	
 	}
 
