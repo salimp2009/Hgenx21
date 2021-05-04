@@ -33,6 +33,10 @@ namespace Hgenx
 	private:
 		// Refactor to unique_ptr or shared_ptr; maynot be needed since Application.h wraps w/ unique_ptr
 		GLFWwindow* m_Window;
+		
+		//TODO : will be implemented
+		//GraphicsContext* m_Context;
+		//std::unique_ptr<GraphicsContext>m_Context;
 
 		struct WindowData
 		{

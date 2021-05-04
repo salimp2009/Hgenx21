@@ -15,8 +15,6 @@
 #endif 
 
 
-
-
 #ifdef HG_DEBUG
 	#if defined(HG_PLATFORM_WINDOWS)
 		#define HG_DEBUGBREAK() __debugbreak()
