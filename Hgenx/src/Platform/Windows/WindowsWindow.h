@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Hgenx/Window.h"
+#include"Hgenx/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -35,7 +36,7 @@ namespace Hgenx
 		GLFWwindow* m_Window;
 		
 		//TODO : will be implemented
-		//GraphicsContext* m_Context;
+		GraphicsContext* m_Context;
 		//std::unique_ptr<GraphicsContext>m_Context;
 
 		struct WindowData

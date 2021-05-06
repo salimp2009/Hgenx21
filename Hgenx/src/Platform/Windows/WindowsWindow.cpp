@@ -1,11 +1,11 @@
 #include "hgpch.h"
-#include "WindowsWindow.h"
+#include "Platform/Windows/WindowsWindow.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 #include "Hgenx/Events/ApplicationEvent.h"
 #include "Hgenx/Events/KeyEvent.h"
 #include "Hgenx/Events/MouseEvent.h"
 
-#include <glad/glad.h>
 
 
 namespace Hgenx
@@ -52,17 +52,9 @@ namespace Hgenx
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
-		/* TODO: Will be implemented later; the line for glfw context will be moved into Init() function of context 
-		   since we want to support other than glfw and OpenGL
-		 */
-		//m_Context = new OpenGLContext();
-		//m_Context->Init();
-
-		glfwMakeContextCurrent(m_Window);
-
-		/*TODO; used for testing only ; will be removed !!*/
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		HG_CORE_ASSERT(status, "Failed to Initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		//m_Context = std::make_unique<OpenGLContext>(m_Window); TODO: add the UniquePtr then Convert to Scope<> pointer wrapper
+		m_Context->Init(); // Below line will be include in here
 
 		glfwSetWindowUserPointer(m_Window, &m_Data); // m_Data has callbackfunction member which will be used to create callback in GLFW
 		SetVSync(true);
@@ -163,10 +155,7 @@ namespace Hgenx
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		
-		/*TODO; will be implemented*/
-		//m_Context->SwapBuffers;
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
