@@ -52,8 +52,9 @@ namespace Hgenx
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 
-		m_Context = new OpenGLContext(m_Window);
-		//m_Context = std::make_unique<OpenGLContext>(m_Window); TODO: add the UniquePtr then Convert to Scope<> pointer wrapper
+		/*TODO: Delete after testing with unique_ptr!*/
+		//m_Context = new OpenGLContext(m_Window);
+		m_Context = std::make_unique<OpenGLContext>(m_Window); //TODO: Convert to Scope<> pointer wrapper
 		m_Context->Init(); // Below line will be include in here
 
 		glfwSetWindowUserPointer(m_Window, &m_Data); // m_Data has callbackfunction member which will be used to create callback in GLFW
