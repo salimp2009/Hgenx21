@@ -33,6 +33,11 @@ namespace Hgenx
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
+		/*TODO; this is temporary; Will be replaced by custom classes and shared_ptr*/
+		unsigned int m_VertexArray{ 0 };
+		unsigned int m_VertexBuffer{ 0 };
+		unsigned int m_IndexBuffer{ 0 };
+
 	private:
 		static Application* s_Instance;
 
