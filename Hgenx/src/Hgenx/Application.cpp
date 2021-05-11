@@ -54,10 +54,17 @@ namespace Hgenx
 																					   if you have other info in the array such as texture , UV coordinates 
 																					   then to use those you pass in the value for start of those column index
 																					 */
+		glGenBuffers(1, &m_IndexBuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+
+		unsigned int indices[3] = { 0,1,2 };				// refers to the order of vertices to be drawn which are in the Vertex Array
+
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	}
 
 	Application::~Application()
 	{
+		
 		
 	}
 
@@ -99,6 +106,9 @@ namespace Hgenx
 		{
 			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			glBindVertexArray(m_VertexArray);
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 			
 			for (Layer* layer : m_LayerStack)
 			{
