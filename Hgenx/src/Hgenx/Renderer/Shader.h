@@ -24,10 +24,4 @@ namespace Hgenx
 	};
 
 
-
-
-
-
-
-
 } // end of namespace

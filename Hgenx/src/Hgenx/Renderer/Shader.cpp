@@ -33,9 +33,8 @@ namespace Hgenx
 			// We don't need the shader anymore.
 			glDeleteShader(vertexShader);
 
-			// Use the infoLog as you see fit.
-
-			// In this simple program, we'll just leave
+			HG_CORE_INFO("{0}", infoLog.data());
+			HG_CORE_ASSERT(false, "Vertex Shader Compile Error!");
 			return;
 		}
 
@@ -65,9 +64,8 @@ namespace Hgenx
 			// Either of them. Don't leak shaders.
 			glDeleteShader(vertexShader);
 
-			// Use the infoLog as you see fit.
-
-			// In this simple program, we'll just leave
+			HG_CORE_INFO("{0}", infoLog.data());
+			HG_CORE_ASSERT(false, "Fragment Shader Compile Error!");
 			return;
 		}
 
@@ -101,29 +99,29 @@ namespace Hgenx
 			glDeleteShader(vertexShader);
 			glDeleteShader(fragmentShader);
 
-			// Use the infoLog as you see fit.
-
-			// In this simple program, we'll just leave
+			HG_CORE_INFO("{0}", infoLog.data());
+			HG_CORE_ASSERT(false, "Shader Linking Error!");
 			return;
 		}
 
 		// Always detach shaders after a successful link.
 		glDetachShader(program, vertexShader);
 		glDetachShader(program, fragmentShader);
-
-
 	}
 
 	Shader::~Shader()
 	{
+		glDeleteProgram(m_RendererID);
 	}
 
 	void Shader::Bind() const
 	{
+		glUseProgram(m_RendererID);
 	}
 
 	void Shader::UnBind() const
 	{
+		glUseProgram(0);
 	}
 
 } // end of namespace
