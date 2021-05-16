@@ -45,7 +45,7 @@
 #define HG_BIND_EVENT_FN_ALT(fn) [this](auto&&... x)->decltype(auto)\
 {\
 	auto f= [](auto&& fnew, auto&&... x1)->decltype(auto){fnew(std::forward<decltype(x1)>(x1)...);};\
-	return f(fn,x...);\
+	return f(fn, x...);\
 }\
 
 

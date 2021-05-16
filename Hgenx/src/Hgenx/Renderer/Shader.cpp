@@ -13,7 +13,7 @@ namespace Hgenx
 
 		// Send the vertex shader source code to GL
 		// Note that std::string's .c_str is NULL character terminated.
-		const GLchar* source = (const GLchar*)vertexSrc.c_str();
+		const GLchar* source = vertexSrc.c_str();
 		glShaderSource(vertexShader, 1, &source, 0);
 
 		// Compile the vertex shader
@@ -43,7 +43,7 @@ namespace Hgenx
 
 		// Send the fragment shader source code to GL
 		// Note that std::string's .c_str is NULL character terminated.
-		source = (const GLchar*)fragmentSrc.c_str();
+		source = fragmentSrc.c_str();
 		glShaderSource(fragmentShader, 1, &source, 0);
 
 		// Compile the fragment shader
@@ -72,7 +72,8 @@ namespace Hgenx
 		// Vertex and fragment shaders are successfully compiled.
 		// Now time to link them together into a program.
 		// Get a program object.
-		GLuint program = glCreateProgram();
+		m_RendererID = glCreateProgram();
+		GLuint program = m_RendererID;
 
 		// Attach our shaders to our program
 		glAttachShader(program, vertexShader);

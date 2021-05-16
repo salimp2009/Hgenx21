@@ -60,6 +60,41 @@ namespace Hgenx
 		unsigned int indices[3] = { 0,1,2 };				// refers to the order of vertices to be drawn which are in the Vertex Array
 
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+
+		/* location=0 corresponss to "0" in the AttribPointer */
+		std::string vertexSrc = R"(
+			#version 450 core
+			
+			layout(location=0) in vec3 a_Position;
+			layout(location=1) in vec4 a_Color;
+
+			out vec3 v_Position;
+			out vec4 v_Color;
+				
+			void main()
+			{
+				v_Position=a_Position;
+				v_Color = a_Color;
+				gl_Position=vec4(a_Position, 1.0);
+			})";
+
+		std::string fragmentSrc = R"(
+			#version 450 core
+
+			layout(location=0) out vec4 color;
+
+			in vec3 v_Position;
+			in vec4 v_Color;
+				
+			void main()
+			{
+				//color=vec4(v_Position*0.5 + 0.5, 1.0);
+				 color=vec4(0.8, 0.2, 0.3, 1.0);
+				//color= v_Color;
+			})";
+
+		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 	}
 
 	Application::~Application()
@@ -107,6 +142,7 @@ namespace Hgenx
 			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			m_Shader->Bind();
 			glBindVertexArray(m_VertexArray);
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 			

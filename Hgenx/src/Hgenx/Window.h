@@ -18,6 +18,7 @@ namespace Hgenx
 			Title{std::move(title)}, Width{width}, Height{height} { }
 	};
 
+
 	/* Interface class for a desktop based Window to be implemented
 	   by each Platform(mobile has surfaces no Window) */
 	class HGENX_API Window
