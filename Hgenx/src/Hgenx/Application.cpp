@@ -89,9 +89,7 @@ namespace Hgenx
 				
 			void main()
 			{
-				//color=vec4(v_Position*0.5 + 0.5, 1.0);
-				 color=vec4(0.8, 0.2, 0.3, 1.0);
-				//color= v_Color;
+				color=vec4(v_Position*0.5+0.5, 1.0);
 			})";
 
 		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
