@@ -22,6 +22,7 @@ namespace Hgenx
 
 	class IndexBuffer
 	{
+	public:
 		virtual ~IndexBuffer() = default;
 
 		virtual void Bind() const = 0;
