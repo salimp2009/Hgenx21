@@ -34,9 +34,6 @@ namespace Hgenx
 		glGenVertexArrays(1, &m_VertexArray);
 		glBindVertexArray(m_VertexArray);
 
-		glGenBuffers(1, &m_VertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
 		/* pass the vertices of a triangle in a counter-clockwise */
 		float vertices[3 * 3] = {
 			-0.5f, -0.5f, 0.0f,	// left corner
@@ -44,7 +41,9 @@ namespace Hgenx
 			 0.0f,  0.5f, 0.0f	// top vertex
 		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof vertices, vertices, GL_STATIC_DRAW);
+
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof vertices));
+		
 		/* zero indicates the first object in the buffer*/
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), nullptr);  /* zero; is the same as above refers to the first object passed in buffer

@@ -6,6 +6,7 @@ namespace Hgenx
 {
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
+	public:
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
 		virtual ~OpenGLVertexBuffer();
 
