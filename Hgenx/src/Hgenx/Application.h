@@ -38,7 +38,6 @@ namespace Hgenx
 
 		/*TODO; this is temporary; Will be replaced by custom classes and shared_ptr*/
 		unsigned int m_VertexArray{ 0 };
-		//unsigned int m_VertexBuffer{ 0 };
 		unsigned int m_IndexBuffer{ 0 };
 		
 		std::unique_ptr<Shader> m_Shader;
@@ -46,8 +45,6 @@ namespace Hgenx
 		/* remove the a at the end once the the above unsigned int version are deleted*/
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffera;
-
-
 
 	private:
 		static Application* s_Instance;
