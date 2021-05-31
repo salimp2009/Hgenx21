@@ -7,7 +7,7 @@ namespace Hgenx
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
 	public:
-		OpenGLVertexBuffer(float* vertices, uint32_t size);
+		OpenGLVertexBuffer(float* vertices, std::uint32_t size);
 		virtual ~OpenGLVertexBuffer();
 
 		virtual void Bind() const override;
@@ -18,7 +18,7 @@ namespace Hgenx
 		//virtual void SetLayout(const BufferLayout& layout) = 0;
 
 	private:
-		uint32_t m_RendererID;
+		std::uint32_t m_RendererID;
 		/*TODO!!*/
 		//BufferLayout m_Layout;
 	};
@@ -27,21 +27,18 @@ namespace Hgenx
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
 	public:
-		OpenGLIndexBuffer(uint32_t* indices, uint32_t count);
+		OpenGLIndexBuffer(std::uint32_t* indices, std::uint32_t count);
 		virtual ~OpenGLIndexBuffer();
 
 		virtual void Bind() const override;
 		virtual void UnBind() const override;
 
-		virtual uint32_t GetCount() const override;
+		virtual std::uint32_t GetCount() const override { return m_Count; }
 
 	private:
-		uint32_t m_RendererID;
-		uint32_t m_Count;
+		std::uint32_t m_RendererID;
+		std::uint32_t m_Count;
 	};
-
-
-
 
 
 } // end of namespace

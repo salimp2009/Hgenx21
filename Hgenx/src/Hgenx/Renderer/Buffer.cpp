@@ -8,7 +8,7 @@
 namespace Hgenx
 {
 
-	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
+	VertexBuffer* VertexBuffer::Create(float* vertices, std::uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
@@ -23,7 +23,7 @@ namespace Hgenx
 		return nullptr;
 	}
 
-	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t count)
+	IndexBuffer* IndexBuffer::Create(std::uint32_t* indices, std::uint32_t count)
 	{
 		switch (Renderer::GetAPI())
 		{

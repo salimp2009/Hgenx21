@@ -10,7 +10,7 @@ namespace Hgenx
 /////////////////////////////////////////////////////////////////////////////////
 
 
-	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size): m_RendererID{0}
+	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, std::uint32_t size): m_RendererID{0}
 	{
 		glCreateBuffers(1, &m_RendererID);
 		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
@@ -36,28 +36,26 @@ namespace Hgenx
 ///// INDEX BUFFER /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
-	OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count): m_RendererID{0}, m_Count{0}
+	OpenGLIndexBuffer::OpenGLIndexBuffer(std::uint32_t* indices, std::uint32_t count): m_RendererID{0}, m_Count{count}
 	{
-		
-		
+		glCreateBuffers(1, &m_RendererID);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ARRAY_BUFFER, m_Count *sizeof(std::uint32_t), indices, GL_STATIC_DRAW);
 	}
 
 	OpenGLIndexBuffer::~OpenGLIndexBuffer()
 	{
+		glDeleteBuffers(1, &m_RendererID);
 	}
 
 	void OpenGLIndexBuffer::Bind() const
 	{
-		
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
 	}
 
 	void OpenGLIndexBuffer::UnBind() const
 	{
-	}
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	uint32_t OpenGLIndexBuffer::GetCount() const
-	{
-		return uint32_t();
 	}
-
 }
