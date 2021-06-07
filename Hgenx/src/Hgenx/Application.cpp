@@ -43,6 +43,14 @@ namespace Hgenx
 
 
 		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof vertices));
+		// TODO; will be implemented after BufferLayout class is created 
+		//BufferLayout layout = {
+		//	{ShaderType::Float3, "a_Position"},
+		//	{ShaderType::Float3, "a_Positio"},
+		//	{ShaderType::Float3, "a_Position"},
+		//	{ShaderType::Float3, "a_TextCord"}
+		//};
+		//m_VertexBuffer->SetLayout(layout);
 		
 		/* zero indicates the first object in the buffer*/
 		glEnableVertexAttribArray(0);
@@ -55,7 +63,7 @@ namespace Hgenx
 																					 */
 		unsigned int indices[3] = { 0,1,2 };										// refers to the order of vertices to be drawn which are in the Vertex Array
 		
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, std::size(indices)));
+		m_IndexBuffer.reset(IndexBuffer::Create( indices, sizeof(indices)/sizeof(std::uint32_t) ));
 
 
 		/* location=0 corresponss to "0" in the AttribPointer */
