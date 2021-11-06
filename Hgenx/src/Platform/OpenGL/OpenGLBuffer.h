@@ -14,13 +14,13 @@ namespace Hgenx
 		virtual void UnBind() const override;
 
 		/*TODO; will be implemented */
-		//virtual const BufferLayout& GetLayout() const& = 0;
-		//virtual void SetLayout(const BufferLayout& layout) = 0;
+		virtual const BufferLayout& GetLayout() const& override { return m_Layout; }
+		virtual void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
 
 	private:
 		std::uint32_t m_RendererID;
 		/*TODO!!*/
-		//BufferLayout m_Layout;
+		BufferLayout m_Layout;
 	};
 
 

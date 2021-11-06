@@ -46,7 +46,7 @@ namespace Hgenx
 		// TODO; will be implemented after BufferLayout class is created 
 		//BufferLayout layout = {
 		//	{ShaderType::Float3, "a_Position"},
-		//	{ShaderType::Float3, "a_Positio"},
+		//	{ShaderType::Float3, "a_Position"},
 		//	{ShaderType::Float3, "a_Position"},
 		//	{ShaderType::Float3, "a_TextCord"}
 		//};

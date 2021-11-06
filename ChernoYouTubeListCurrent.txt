@@ -1,0 +1,4 @@
+Stopped the series implementation at List #31; not completely implemented
+
+"Vertex Buffer Layouts | Game Engine series
+Jun 9, 2019"
